@@ -41,7 +41,7 @@ const register = async (req,res)=>{
       let msg ={
         from : req.body.email,     //from email (client email)
         to : process.env.USERSEMAIL ,   //qamar sir(company email)
-        subject: "Place Order",
+        subject: "Email Sent Successfully",
         html:emailText
       }
       transporter.sendMail(msg).then(() => {
