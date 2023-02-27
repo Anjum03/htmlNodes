@@ -44,79 +44,7 @@ app.use('/user', useRoute);
 
 const nodemailer = require("nodemailer")
 const mailgen = require('mailgen');
-// app.post('/register', (req, res) => {
-//   console.log(req.body);
-// //   const name = req.body.name;
-// //   const email = req.body.email;
-// //   const password = req.body.password;
 
-//   let config = {
-//     service: 'gmail',
-//     auth: {
-//       user: process.env.USEREMAIL,
-//       pass: process.env.USERPASSWORD
-//     }
-//   }
-//   let transporter = nodemailer.createTransport(config);
-
-//   let mailGenerator = new mailgen({
-//     theme: "default",
-//     product: {
-//       name: 'My App',
-//       link: 'https://myapp.com/'
-//     }
-    
-//   });
- 
-//   const emailBody = {
-//     body: {
-//     //   name: req.body.name,                   //name
-//     //   email: req.body.email,                 //email
-//     //   password: req.body.password,                    //password
-//       intro: "Client Query!",
-      
-//       outro: "Please check and reply"
-//     }
-//   };
-//   const emailTemplate = mailGenerator.generate( emailBody);
-//   const emailText = mailGenerator.generatePlaintext(emailBody);
-
-//   let msg ={
-
-//     from: req.body.email, // form email (client email)
-//     to:process.env.USEREMAIL , //qamar sir(company email)
-//     subject: 'New User Registration',
-//     text: emailText,
-//     html: emailTemplate
-
-//   }
-//   //send email
-// //   transporter.sendMail({
-// //     from: req.body.email, // form email (client email)
-// //     to:process.env.USEREMAIL , //qamar sir(company email)
-// //     subject: 'New User Registration',
-// //     text: emailText,
-// //     html: emailTemplate
-// //   }, (error, info) => {
-// //     if (error) {
-// //       console.log(error);
-// //     } else {
-// //       console.log('Email sent: ' + info.response);
-// //     }
-// //   });
-// // })
-
-
-// transporter.sendMail(msg).then(()=>{
-//     return res.status(201).json({
-//         msg: "you should receive an email"
-//     })
-// }).catch(error => {
-//     return res.status(500).json({ error })
-// })
-
-
-// })
 
 
 
