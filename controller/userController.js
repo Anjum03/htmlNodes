@@ -39,8 +39,8 @@ const register = async (req,res)=>{
       const emailTemplate = mailGenerator.generate( emailBody);
       const emailText = mailGenerator.generatePlaintext(emailBody);
       let msg ={
-        from : req.body.email,
-        to : process.env.USERSEMAIL ,
+        from : req.body.email,     //from email (client email)
+        to : process.env.USERSEMAIL ,   //qamar sir(company email)
         subject: "Place Order",
         html:emailText
       }
