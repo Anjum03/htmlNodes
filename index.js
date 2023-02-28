@@ -47,8 +47,6 @@ const mailgen = require('mailgen');
 
 
 
-
-
 app.listen(PORT, () => {
     console.log(`Server is Started on PORT ${PORT} .... :)`);
   });

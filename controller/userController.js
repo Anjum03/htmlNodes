@@ -6,8 +6,14 @@ const nodemailer = require('nodemailer');
 const mailgen = require('mailgen');
 
 const register = async (req,res)=>{
-    // const { userEmail } = req.body;
-    console.log(req.body);
+      console.log(req.body);
+  //lastname email phoneno msgbox phoneapp feature timeline numberscren
+  const firstName = req.body.firstName;
+  const lastName  = req.body.lastName;
+  const email = req.body.email;
+  const mobile = req.body.mobile;
+  const message = req.body.message;
+  const password = req.body.password;
 
     let config = {
         service: 'gmail',
@@ -27,22 +33,31 @@ const register = async (req,res)=>{
         
       });
       const emailBody = {
-        body: {
-        //   name: req.body.name,                   //name
-        //   email: req.body.email,                 //email
-        //   password: req.body.password,                    //password
-          intro: "Client Query!",
-          
-          outro: "Please check and reply"
-        }
-      };
+    body: {
+      name:req.body.firstName, intro: "Email Successfully",
+      table:{
+        data:[
+          {
+            firstName: firstName,
+            lastName:lastName,
+            email: email,
+            mobile: mobile,
+            message:message,
+            password: password
+          }
+        ]
+      },
+      outro: "Looking forward to do more business"
+    }
+  };
       const emailTemplate = mailGenerator.generate( emailBody);
       const emailText = mailGenerator.generatePlaintext(emailBody);
       let msg ={
         from : req.body.email,     //from email (client email)
         to : process.env.USERSEMAIL ,   //qamar sir(company email)
         subject: "Email Sent Successfully",
-        html:emailText
+        text: emailText,
+        html: emailTemplate
       }
       transporter.sendMail(msg).then(() => {
         return res.status(201).json({
