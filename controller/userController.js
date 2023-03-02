@@ -13,7 +13,11 @@ const register = async (req,res)=>{
   const email = req.body.email;
   const mobile = req.body.mobile;
   const message = req.body.message;
-  const password = req.body.password;
+  const inlineRadio = req.body.inlineRadio;
+  const number_screen = req.body.number_screen;
+  const timeline = req.body.timeline;
+  const checkbox_feature = req.body.checkbox_feature
+  const checkbox_language = req.body.checkbox_language
 
     let config = {
         service: 'gmail',
@@ -27,7 +31,7 @@ const register = async (req,res)=>{
       let mailGenerator = new mailgen({
         theme: "default",
         product: {
-          name: 'My App',
+          name: 'Namlsoft',
           link: 'https://myapp.com/'
         }
         
@@ -43,7 +47,12 @@ const register = async (req,res)=>{
             email: email,
             mobile: mobile,
             message:message,
-            password: password
+            inlineRadio: inlineRadio,
+            number_screen: number_screen,
+            timeline:timeline,
+            checkbox_feature:checkbox_feature,
+            checkbox_language:checkbox_language
+            
           }
         ]
       },
@@ -60,10 +69,13 @@ const register = async (req,res)=>{
         html: emailTemplate
       }
       transporter.sendMail(msg).then(() => {
+        res.status(200).send("Email sent Successfully");
         return res.status(201).json({
-            msg: "you should receive an email"
+          msg: "Email sent successfully"
+          
         })
-    }).catch(error => {
+      }).catch(error => {
+      res.status(500).send("Email not sent Successfully");
         return res.status(500).json({ error })
     })
 

@@ -38,12 +38,11 @@ const corsOptionsDelegate = (req, callback) => {
 };
 
 
+
 const useRoute = require("./route/userRoute");
 app.use('/user', useRoute);
 
 
-const nodemailer = require("nodemailer")
-const mailgen = require('mailgen');
 
 
 
